@@ -27,8 +27,6 @@ def main():
     df = pd.read_csv('extracted.csv').dropna()
     joshi_nashi = split_sentences(remove_joshi(df)['原文文字列'].to_list())
     joshi_ari = split_sentences(df['原文文字列'].to_list())
-    print(len(joshi_nashi), joshi_nashi[0])
-    print(len(joshi_ari), joshi_ari[0])
     nashi_model = Word2Vec(joshi_nashi)
     ari_model = Word2Vec(joshi_ari)
     nashi_model.save('joshi_nashi.model')
