@@ -45,23 +45,29 @@ def plot(df, title, cc):
     plt.clf()
 
 
-def main():
-    start = time.time()
+def get_score():
     ari_vector = Word2Vec.load('joshi_ari.model').wv
-    nashi_vector = Word2Vec.load('joshi_nashi.model').wv
+    # nashi_vector = Word2Vec.load('joshi_nashi.model').wv
     word_pairs = pd.read_excel(
         'O-S.xlsx',
         sheet_name='All',
         use_cols=['Target', 'Neighbor', 'Rating']
     )
     ari_res = get_cs_rating_df(ari_vector, word_pairs)
-    nashi_res = get_cs_rating_df(nashi_vector, word_pairs)
+    ari_res.to_excel('test.xlsx')
+    # nashi_res = get_cs_rating_df(nashi_vector, word_pairs)
+    # ari_cc = np.corrcoef(ari_res['Cosine_Similarity'], ari_res['Rating'])
     ari_cc = ari_res['Cosine_Similarity'].corr(ari_res['Rating'])
-    nashi_cc = nashi_res['Cosine_Similarity'].corr(nashi_res['Rating'])
-    print(ari_res.head())
-    print(nashi_res.head())
-    plot(ari_res, '助詞あり', ari_cc)
-    plot(nashi_res, '助詞なし', nashi_cc)
+    # return (ari_cc + nashi_cc) / 2
+    return ari_cc
+
+
+def main():
+    start = time.time()
+    get_score()
+    
+    # plot(ari_res, '助詞あり', ari_cc)
+    # plot(nashi_res, '助詞なし', nashi_cc)
     print(time.time()-start)
 
 
