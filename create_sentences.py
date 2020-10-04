@@ -31,14 +31,14 @@ def write(sentences, file):
 def main():
     start = time.time()
     df = pd.read_csv('extracted.csv').dropna()
-    # joshi_nashi = split_sentences(remove_joshi(df)['原文文字列'].to_list())
+    joshi_nashi = split_sentences(remove_joshi(df)['原文文字列'].to_list())
     joshi_ari = split_sentences(df['原文文字列'].to_list())
-    # write(joshi_nashi, 'joshi_nashi')
-    # write(joshi_ari, 'joshi_ari')
-    # nashi_model = Word2Vec(joshi_nashi, window_size=10)
-    ari_model = Word2Vec(joshi_ari)
+    write(joshi_nashi, 'joshi_nashi')
+    write(joshi_ari, 'joshi_ari')
+    # # nashi_model = Word2Vec(joshi_nashi, window_size=10)
+    # ari_model = Word2Vec(joshi_ari)
     # nashi_model.save('joshi_nashi.model')
-    ari_model.save('joshi_ari.model')
+    # ari_model.save('joshi_ari.model')
 
 
 if __name__ == "__main__":
