@@ -62,6 +62,7 @@ def get_score(ari_vector, nashi_vector):
 
     ari_cc = res_df['Ari_Cosine_Similarity'].corr(res_df['Rating'])
     nashi_cc = res_df['Nashi_Cosine_Similarity'].corr(res_df['Rating'])
+    res_df.to_excel('output.xlsx')
     return ari_cc, nashi_cc
 
 
