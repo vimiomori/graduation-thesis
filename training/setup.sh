@@ -7,7 +7,6 @@ then
 	echo 'Python3 not installed'
 	echo 'Installing python3'
 	apt -y update
-	apt -y upgrade
 	apt install -y python3 python3-pip
 fi
 

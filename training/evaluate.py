@@ -3,8 +3,13 @@
 import time
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import japanize_matplotlib
+import warnings
+
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore",category=DeprecationWarning)
+    import matplotlib.pyplot as plt
+    # import japanize_matplotlib
+
 from gensim.models import Word2Vec
 from numpy.polynomial.polynomial import polyfit
 
