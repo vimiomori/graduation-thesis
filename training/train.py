@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# -*- coding: UTF-8 -*-
+
 import time
 import csv
 import pickle
@@ -16,7 +19,7 @@ def main(sg, window, size):
     print("Loading 助詞なし corpus")
     with open('joshi_nashi.pkl', 'rb') as f:
         nashi_corpus = pickle.load(f)
-    print(">"*10, f"Corpuses loaded, time elapsed: {((time.time() - start)/60):.2f} mins", "<"*10)
+    # print(f"Corpuses loaded, time elapsed: {((time.time() - start)/60):.2f} mins")
     
     with open("tuning_results.csv", "a", newline="") as f:
         wr = csv.writer(f)

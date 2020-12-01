@@ -28,9 +28,9 @@ def get_cs_rating_df(ari_vector, nashi_vector, word_pairs):
         row = dict(
             Target=target,
             Neighbor=neighbor,
+            Rating=rating,
             Ari_Cosine_Similarity=ari_cosine_similarity,
-            Nashi_Cosine_Similarity=nashi_cosine_similarity,
-            Rating=rating
+            Nashi_Cosine_Similarity=nashi_cosine_similarity
         )
         df = df.append(row, ignore_index=True)
     return df

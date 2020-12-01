@@ -9,7 +9,7 @@ for sg in $(jq '.sg | .[]' params.json); do
             python train.py $sg $window $size
             RESULT=$?
             if [ $RESULT -eq 0 ]; then
-                COUNT++
+                ((COUNT++))
                 continue
             else
                 exit 1
